@@ -1,0 +1,45 @@
+<div class="container">
+
+  <div class="row">
+    <h3>
+      Video Browser
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <app-search-box (loading)='isSearching = $event' (searchResult)='videoResults = $event'></app-search-box>
+
+
+    </div>
+    <div class="col-sm-1">
+      <i *ngIf="isSearching" class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+
+
+
+      <!-- <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+      <span class="sr-only">Loading...</span>
+      
+      <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+      <span class="sr-only">Loading...</span>
+      
+      <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+      <span class="sr-only">Loading...</span>
+      
+      <i class="fa fa-cog fa-spin fa-1x fa-fw"></i>
+      <span class="sr-only">Loading...</span>
+      
+   
+      <span class="sr-only">Loading...</span> -->
+
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <app-video-result *ngFor="let videoResult of videoResults" [videoInfo]="videoResult"></app-video-result>
+    </div>
+  </div>
+  <div class="row">
+    <pre>{{videoResults | json}}</pre>
+  </div>
+</div>

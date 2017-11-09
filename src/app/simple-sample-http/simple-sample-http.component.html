@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">Simple Http Request</div>
+  </div>
+  <div class="row">
+
+    <div class="col-sm-2">
+      <button (click)="callService()">
+        <i class="fa fa-arrow-right" arria-hidden="true"> Call Service</i>
+      </button>
+    </div>
+
+    <div class="col-sm-2">
+      <button (click)="callSingleItemResponse()">
+        <!-- Create an icon wrapped by the fa-stack class -->
+
+        Get
+        <span class="fa-stack">
+            <!-- The icon that will wrap the number -->
+            <span class="fa fa-circle-o fa-stack-2x"></span>
+            <!-- a strong element with the custom content, in this case a number -->
+            <strong class="fa-stack-1x">
+              1
+            </strong>
+          
+          </span>
+    
+
+      </button>
+
+
+    </div>
+
+
+    <div class="col-sm-2">
+      <button (click)="getRandomPost()"> Get Random  </button>
+    </div>
+    
+
+    <div class="col-sm-2">
+      <button (click)="getUsers()" >Get Users</button>
+    </div>
+
+
+    <div class="col-sm-2">
+        <button (click)="getRandomUser()" >Get Random User</button>
+      </div>
+
+    <div class="col-sm-2">
+      <div *ngIf="isLoading">
+        <i class="fa fa-cog fa-spin"></i> Loading ... </div>
+    </div>
+
+    
+
+
+  </div>
+
+  <div *ngIf="isLoading == false">
+    <p *ngIf="serviceResponse != null ">Response:</p>
+    <p>{{serviceResponse | json}}</p>
+  </div>
+
+
+</div>
