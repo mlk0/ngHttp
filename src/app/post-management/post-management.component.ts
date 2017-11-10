@@ -9,17 +9,15 @@ import { PostValidators } from "app/post-management/post-validators";
   encapsulation: ViewEncapsulation.None
 })
 export class PostManagementComponent implements OnInit {
+
   fg: FormGroup;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
 
     var postTitleFormControl = this.fb.control('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(10), PostValidators.offensiveLanguage]));
     var postBodyFormControl = this.fb.control('', Validators.compose([Validators.required, PostValidators.offensiveLanguage]));
-
-    // var postTitleFormControl = this.fb.control('',Validators.compose([Validators.required,  Validators.minLength(3),Validators.maxLength(10)]));
-    // var postBodyFormControl = this.fb.control('',Validators.compose([Validators.required,  Validators.minLength(3),Validators.maxLength(10), PostValidators.offensiveLanguage]));
-
 
     this.fg = this.fb.group({
       'title': postTitleFormControl,
@@ -42,12 +40,8 @@ export class PostManagementComponent implements OnInit {
 
 
   onFormSubmit(fgValue: any): void {
-    //console.log(`fgValue : ${JSON.stringify(fgValue) }`);
     console.log(fgValue);
     console.log(`this.fg.valid : ${this.fg.valid}`)
-
-
-
   }
 
 }
