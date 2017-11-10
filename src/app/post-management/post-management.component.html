@@ -1,0 +1,42 @@
+<form [formGroup]='fg' (ngSubmit)='onFormSubmit(fg.value)'>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <label for="titleInput">Post Title</label>
+      </div>
+      <div class="col-md-2">
+        <input type="text" name="titleInput" [formControl]="fg.controls['title']">
+      </div>
+      <div class="col-md-8">
+        <span *ngIf="fg.controls['title'].dirty && fg.controls['title'].hasError('required')">the post title is required</span>
+        <span *ngIf="fg.controls['title'].dirty && fg.controls['title'].hasError('minlength')">the post title needs to have at least 3 characters</span>
+        <span *ngIf="fg.controls['title'].dirty && fg.controls['title'].hasError('maxlength')">the post title cannot be longer than 10 characters</span>
+        <span *ngIf="fg.controls['title'].dirty && fg.controls['title'].hasError('offensiveLanguage')">the post title may not contain any offensive language</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <label for="bodyInput">Post Content</label>
+      </div>
+      <div class="col-md-2">
+        <input type="text" name="bodyInput" [formControl]="fg.controls['body']">
+      </div>
+      <div class="col-md-8">
+        <span *ngIf="fg.controls['body'].dirty && fg.controls['body'].hasError('required')">the post body is required</span>
+        <span *ngIf="fg.controls['body'].dirty && fg.controls['body'].hasError('offensiveLanguage')">the post body may not contain any offensive language</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <button [disabled]='!fg.valid'>Submit</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md">
+        <span *ngIf="fg.dirty && !fg.valid">* the form has validation errors</span>
+      </div>
+    </div>
+
+  </div>
+</form>

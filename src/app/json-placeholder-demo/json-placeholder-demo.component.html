@@ -1,0 +1,38 @@
+<div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <button (click)="getAllPosts()">Get All Posts </button>
+    </div>
+    <div class="col-md-2">
+      <button (click)="getSinglePost(1)">Get Single Post </button>
+    </div>
+
+    <div class="col-md-2">
+      <i *ngIf="isBusy" class="fa fa-spinner fa-spin"></i>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-md">
+      <app-post-management></app-post-management>
+    </div>
+  </div>
+
+
+  <div class="row" *ngIf="postResults">
+    <div class="col-md">
+      <app-post-list [posts]="postResults"></app-post-list>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md">
+      <pre>{{results | json}}</pre>
+    </div>
+  </div>
+
+</div>

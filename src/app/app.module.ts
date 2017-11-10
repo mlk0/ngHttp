@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,10 @@ import { YoutubeSearchService } from 'app/services/youtube-search.service';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { YoutubeBrowserComponent } from './youtube-browser/youtube-browser.component';
 import { VideoResultComponent } from './video-result/video-result.component';
+import { JsonPlaceholderDemoComponent } from './json-placeholder-demo/json-placeholder-demo.component';
+import { JsonPlaceholderService } from "app/services/json-placeholder.service";
+import { PostListComponent } from './post-list/post-list.component';
+import { PostManagementComponent } from './post-management/post-management.component';
 
 @NgModule({
   declarations: [
@@ -19,18 +23,23 @@ import { VideoResultComponent } from './video-result/video-result.component';
     YoutubeVideoBrowserComponent,
     SearchBoxComponent,
     YoutubeBrowserComponent,
-    VideoResultComponent
+    VideoResultComponent,
+    JsonPlaceholderDemoComponent,
+    PostListComponent,
+    PostManagementComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: 'SERVICE_URL', useValue: Constants.jsonPlaceholderUrl },
     { provide: 'YOUTUBE_BROWSER_API_KEY', useValue: Constants.youTubeBrowserApiKey },
     { provide: 'YOUTUBE_SEARCH_URL', useValue: Constants.youtubeSearchUrl }
-    ,YoutubeSearchService
+    ,YoutubeSearchService,
+    JsonPlaceholderService
   ],
   bootstrap: [AppComponent]
 })
