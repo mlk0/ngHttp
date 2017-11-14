@@ -5,7 +5,7 @@
         <label for="titleInput">Post Title</label>
       </div>
       <div class="col-md-2">
-        <input type="text" name="titleInput" [formControl]="fg.controls['title']">
+        <input type="text" name="titleInput" [formControl]="fg.controls['title']" value="{{postForUpdate.title}}">
       </div>
       <div class="col-md-8">
         <span *ngIf="fg.controls['title'].dirty && fg.controls['title'].hasError('required')">the post title is required</span>
@@ -19,7 +19,8 @@
         <label for="bodyInput">Post Content</label>
       </div>
       <div class="col-md-2">
-        <input type="text" name="bodyInput" [formControl]="fg.controls['body']">
+        <!-- <input type="textarea" name="bodyInput" [formControl]="fg.controls['body']" value="{{postForUpdate.body}}" > -->
+        <textarea name="bodyInput" cols="40" rows="5" [formControl]="fg.controls['body']" value="{{postForUpdate.body}}"></textarea>
       </div>
       <div class="col-md-8">
         <span *ngIf="fg.controls['body'].dirty && fg.controls['body'].hasError('required')">the post body is required</span>
@@ -27,8 +28,13 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-md-6">
+
+      </div>
       <div class="col-md-2">
-        <button [disabled]='!fg.valid'>Submit</button>
+        <!-- <button [disabled]='!fg.valid' type="submit">Submit</button> -->
+        <input type="submit" value="Submit Form" [disabled]='!fg.valid'>
+        <input type="button" value="Delete" (click)="deletePost()" [disabled]='postForUpdate.id == 0'>
       </div>
     </div>
 
@@ -38,5 +44,21 @@
       </div>
     </div>
 
+
+    <div class="row" *ngIf="fg.dirty && !fg.valid">
+        <div class="col-md">
+          <span >Form Errors</span>
+          <ul>
+            <li *ngFor="let formError of formValidationErrors">
+              {{formError}}
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+
+       
+      
+    
   </div>
 </form>
