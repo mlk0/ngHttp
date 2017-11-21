@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { YouTubeSearchResult } from 'app/youtube-video-browser/search-result';
 
 @Component({
   selector: 'app-youtube-browser',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class YoutubeBrowserComponent implements OnInit {
   
   isSearching : boolean
-
+  videoResults : any;
   constructor() { }
 
   ngOnInit() {
