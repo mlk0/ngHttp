@@ -84,6 +84,10 @@ export class JsonPlaceholderDemoComponent implements OnInit {
 
     this.isBusy = true;
 
+    //.do is rxjs operator
+    //in the prod builds the runtime exception is indicating that do is unknown operator as if rxjs was not imported
+    //when in dev mode, the operator needs to be imported at least somewhere in the module/app but it seems that for prod, 
+    //this will need to be specified everywhere if necessary
     let rest = this.jsonPlaceholderService.getPost().do((i: any) => { console.log(i) }).subscribe(
       (posts: Post[]) => {
         this.postResults = posts;
