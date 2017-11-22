@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { JsonPlaceholderService } from "app/services/json-placeholder.service";
 
 import 'rxjs/add/operator/switch';
-//import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/do';
 import { Post } from "app/services/post";
 
 @Component({
