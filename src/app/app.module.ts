@@ -15,6 +15,7 @@ import { JsonPlaceholderDemoComponent } from './json-placeholder-demo/json-place
 import { JsonPlaceholderService } from "app/services/json-placeholder.service";
 import { PostListComponent } from './post-list/post-list.component';
 import { PostManagementComponent } from './post-management/post-management.component';
+//import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,9 @@ import { PostManagementComponent } from './post-management/post-management.compo
     { provide: 'SERVICE_URL', useValue: Constants.jsonPlaceholderUrl },
     { provide: 'YOUTUBE_BROWSER_API_KEY', useValue: Constants.youTubeBrowserApiKey },
     { provide: 'YOUTUBE_SEARCH_URL', useValue: Constants.youtubeSearchUrl }
-    ,YoutubeSearchService,
+    , YoutubeSearchService,
     JsonPlaceholderService
+    //,{ provide: APP_BASE_HREF, useValue: '/app/' }
   ],
   bootstrap: [AppComponent]
 })
